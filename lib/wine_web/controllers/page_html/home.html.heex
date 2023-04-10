@@ -1,0 +1,20 @@
+<.flash_group flash={@flash} />
+<section class="row">
+  <form method="get" action="/">
+    <input type="text" name="query" />
+    <input type="submit" />
+  </form>
+</section>
+
+<section class="row">
+  <%= unless @wine_documents == [] do %>
+    <h2>Results:</h2>
+    <div class="container">
+      <ul>
+        <%= for wine <- @wine_documents do %>
+          <li><a href={wine.url}><%= wine.title %></a></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</section>
